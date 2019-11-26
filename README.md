@@ -1,27 +1,68 @@
-# Larg
+# 9 rc3 rebuild ~8.5s
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.0-rc.3.
+```
+Angular CLI: 9.0.0-rc.3
+Node: 13.1.0
+OS: win32 x64
+Angular: 9.0.0-rc.3
+... animations, cli, common, compiler, compiler-cli, core, forms
+... language-service, localize, platform-browser
+... platform-browser-dynamic, router
 
-## Development server
+Package                           Version
+-----------------------------------------------------------
+@angular-devkit/architect         0.900.0-rc.3
+@angular-devkit/build-angular     0.900.0-rc.3
+@angular-devkit/build-optimizer   0.900.0-rc.3
+@angular-devkit/build-webpack     0.900.0-rc.3
+@angular-devkit/core              9.0.0-rc.3
+@angular-devkit/schematics        9.0.0-rc.3
+@angular/cdk                      9.0.0-rc.4
+@angular/material                 9.0.0-rc.4
+@ngtools/webpack                  9.0.0-rc.3
+@schematics/angular               9.0.0-rc.3
+@schematics/update                0.900.0-rc.3
+rxjs                              6.5.3
+typescript                        3.6.4
+webpack                           4.41.2
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+Date: 2019-11-26T16:41:42.649Z - Hash: 6aefb0d8973fd98b5d29 - Time: 75875ms
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+** Angular Live Development Server is listening on 0.0.0.0:4200, open your browser on http://localhost:4200/ **
+: Compiled successfully.
 
-## Build
+Date: 2019-11-26T16:42:26.277Z - Hash: 37ead72013aa23ca76ed
+417 unchanged chunks
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Time: 41778ms
+: Compiled successfully.
 
-## Running unit tests
+Date: 2019-11-26T16:42:39.172Z - Hash: 2b0105d2d8420ea7e03a
+415 unchanged chunks
+chunk {334} 334.422e1f2d6a5765a861d6.js, 334.422e1f2d6a5765a861d6.js.map () 60.2 kB  [rendered]
+chunk {runtime} runtime.e7ce4160d8d9f098b1d5.js, runtime.e7ce4160d8d9f098b1d5.js.map (runtime) 20.5 kB [entry] [rendered]
+Time: 8470ms
+: Compiled successfully.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Date: 2019-11-26T16:42:50.622Z - Hash: 6ae53e18095844339bd4
+415 unchanged chunks
+chunk {334} 334.0720898a9c49338f8193.js, 334.0720898a9c49338f8193.js.map () 60.2 kB  [rendered]
+chunk {runtime} runtime.78a62493f4d9f1f3dfe9.js, runtime.78a62493f4d9f1f3dfe9.js.map (runtime) 20.5 kB [entry] [rendered]
+Time: 8670ms
+: Compiled successfully.
 
-## Running end-to-end tests
+Date: 2019-11-26T16:43:03.987Z - Hash: 3c0d6b7175a867d2a267
+415 unchanged chunks
+chunk {334} 334.de34f0c2f8c4d0122e70.js, 334.de34f0c2f8c4d0122e70.js.map () 60.2 kB  [rendered]
+chunk {runtime} runtime.9ee3ba5326a6b9fc17dc.js, runtime.9ee3ba5326a6b9fc17dc.js.map (runtime) 20.5 kB [entry] [rendered]
+Time: 8311ms
+: Compiled successfully.
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Date: 2019-11-26T16:43:25.412Z - Hash: a9a5ac69bde2f45ddbd8
+415 unchanged chunks
+chunk {334} 334.6a986bca056a220acd15.js, 334.6a986bca056a220acd15.js.map () 60.1 kB  [rendered]
+chunk {runtime} runtime.5a2cfef5cf4222581658.js, runtime.5a2cfef5cf4222581658.js.map (runtime) 20.5 kB [entry] [rendered]
+Time: 9036ms
+: Compiled successfully.
+```
