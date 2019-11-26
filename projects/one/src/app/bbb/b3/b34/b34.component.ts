@@ -63,7 +63,6 @@ export class B34Component implements OnInit {
   ];
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
 }
