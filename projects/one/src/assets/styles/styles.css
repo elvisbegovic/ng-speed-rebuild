@@ -1,0 +1,853 @@
+@import "salesforce-lightning-design-system.min.css";
+@import "salesforce-lightning-design-system-override.css";
+@import "~angular-tree-component/dist/angular-tree-component.css";
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+
+.slds-icon-text-brand{
+  fill: #0070d2!important;
+}
+.slds-text-color-brand{
+  color: #0070d2!important;
+}
+
+
+.bg-white{
+  background-color: white;
+}
+.slds-select,.slds-input{
+  /*line-height: 1.4rem!important;*/
+  /*min-height: calc(1.4rem + 2px)!important;*/
+}
+
+/* Adapt height and scroll  for each module*/
+.module-wrapper {
+  z-index:-1;
+  overflow: auto;
+  position: absolute;
+  -webkit-overflow-scrolling: touch;
+  top: 40px;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+/* Add 100% on height (vertical)*/
+.fullheight{
+  height:100%;
+}
+.maxfullheight{
+  max-height:100%;
+}
+.halfheight{
+  height:50%;
+}
+.fullwidth {
+  width: 100%;
+}
+
+/*
+########### FORMS OVERRIDE SLDS
+*/
+.width-10{
+  width:10px;
+}
+.width-20{
+  width:20px;
+}
+.width-30{
+  width:30px;
+}
+.width-40{
+  width:40px;
+}
+.width-50{
+  width:50px;
+}
+.width-60{
+  width:60px;
+}
+.width-70{
+  width:70px;
+}
+.width-80{
+  width:80px;
+}
+.width-90{
+  width:90px;
+}
+.width-100{
+  width:100px;
+}
+.width-110{
+  width:110px;
+}
+.width-120{
+  width:120px;
+}
+.width-130{
+  width:130px;
+}
+.width-140{
+  width:140px;
+}
+.width-150{
+  width:150px;
+}
+.width-160{
+  width:160px;
+}
+.width-170{
+  width:170px;
+}
+.width-180{
+  width:180px;
+}
+.width-200{
+  width:200px;
+}
+.width-210{
+  width:210px;
+}
+.width-220{
+  width:220px;
+}
+.width-230{
+  width:230px;
+}
+.width-240{
+  width:240px;
+}
+.width-250{
+  width:250px;
+}
+.width-300{
+  width:300px;
+}
+.width-350{
+  width:350px;
+}
+
+.height-150 {
+  height: 150px;
+}
+
+/* Surcharger class slds autocomplete */
+.slds-combobox__menu{
+  width:auto;
+}
+
+::placeholder{
+  color: #888888;
+  font-style:italic;
+}
+/**
+quand le champ/formulaire est disabled on n'affiche pas el palceholder
+ */
+[disabled]::placeholder {
+  visibility: hidden;
+}
+
+/* largeur des types de champs */
+.champ-date input,.champ-date .slds-select_container {
+  max-width: 105px !important;
+}
+.champ-date input, .champ-date-mois input,
+.champ-date .slds-select_container, .champ-date-mois .slds-select_container{
+  text-align:center;
+}
+
+.champ-date-mois input,.champ-date-mois .slds-select_container{
+  max-width: 65px !important;
+}
+
+.champ-nom input,.champ-nom .slds-select_container{
+  max-width: 150px !important;
+}
+
+.champ-designation input, .champ-designation .slds-select_container{
+  max-width: 250px !important;
+}
+
+.champ-designation-long input, .champ-designation-long .slds-select_container{
+  max-width: 350px !important;
+}
+
+/* taille pour un integer'max en java: 2147483647 */
+.champ-no input, .champ-no .slds-select_container{
+  max-width: 110px !important;
+}
+
+/* taille pour un petit nombre: 999 */
+.champ-no-court input, .champ-no-court .slds-select_container{
+  max-width: 70px !important;
+}
+
+/* taille pour un grand nombre */
+.champ-no-long input, .champ-no-long .slds-select_container{
+  max-width: 220px !important;
+}
+
+/* Taille pour un montant, pour afficher 999'999'999'990.99  */
+.champ-montant input, .champ-montant .slds-select_container{
+  max-width: 160px !important;
+}
+
+/* Taille pour un petit montant, pour afficher 999'999.99  */
+.champ-montant-sm input, .champ-montant-sm .slds-select_container{
+  max-width: 100px !important;
+}
+
+/* Taille pour une année, donc 4 caractères */
+.champ-annee input, .champ-annee .slds-select_container{
+  max-width: 65px !important;
+}
+
+/** Taille pour un pourcentage, max: 100.00 */
+.champ-pct input, .champ-pct .slds-select_container {
+  max-width: 80px !important;
+}
+
+.champ-checkbox input, .champ-checkbox .slds-select_container{
+  max-width: 16px !important;
+}
+
+/* Background color*/
+.label-default {
+  background-color: #777!important;
+}
+.label-primary {
+  background-color: #337ab7!important;
+}
+.label-success {
+  background-color: #5cb85c!important;
+}
+.label-info {
+  background-color: #5bc0de!important;
+}
+.label-warning {
+  background-color: #f0ad4e!important;
+}
+.label-danger {
+  background-color: #d9534f!important;
+}
+
+/**
+   Couleurs icon
+ */
+
+.slds-icon-text-success{fill: #35c21e!important}
+
+
+/* Font color */
+.text-color-white{
+  color: #fff!important;
+}
+
+.slds-text-color_warning{
+  color:#f18600;
+}
+
+.slds-text-color_primary{
+  color:#1589ee;
+}
+
+/* Currency input */
+input[currency], input[number] {
+  text-align: right;
+}
+
+.amount{
+  text-align:right;
+}
+.total{
+  text-align:right;
+  font-weight:bold!important;
+}
+
+.inline-block {
+  display: inline-block !important;
+}
+
+/**
+ * Pour éviter que le style [hidden] soit modifié par slds-formElementComptable qui lui
+ * ré-applique un display: inline-block; sur les input. Les input sont
+ * alors plus caché  alors qu'ils le devraient
+ */
+[hidden] {
+  display: none !important;
+}
+
+/** Pour que les champs des formulaires soient au bon endroit */
+/*.slds-form_horizontal{*/
+  /*text-align: left !important;*/
+/*}*/
+/*.slds-form_horizontal .slds-form-element__control {*/
+  /*text-align: inherit !important;*/
+  /*margin-left:10px;*/
+  /*width: calc(66% - 10px) !important;*/
+/*}*/
+
+.width-100-pct {
+  width: 100%!important;
+}
+
+.width-50-pct {
+  width: 50%!important;
+}
+
+.slds-form-element .slds-combobox__list li:hover {
+  font-weight: bold;
+}
+
+.slds-form_horizontal .slds-form-element > .slds-form-element__label, .slds-form_horizontal .slds-form-element > .slds-form-element__legend{
+  padding-right:2px;
+}
+
+/* mettre celuila au bon scope si les inputs ne sont pas bon car dans saisie des ecriture comptable j'ai pas besoin de ca*/
+/*
+.slds-form_horizontal .slds-form-element_hoverable > .slds-form-element__label,
+.slds-form_horizontal .slds-form-element_hoverable > .slds-form-element__legend {
+  width: 33%;
+}
+.slds-form_horizontal .slds-form-element__control{*/
+/*width: auto;*/
+/*}*/
+
+
+
+/**
+override disabled input
+ */
+.slds-input[disabled],
+.slds-textarea[disabled],
+.slds-select[disabled]{
+  border:none;
+}
+
+.slds-input,
+.slds-textarea,
+.slds-select {
+  padding: 0px 3px;
+}
+
+.filters-row .slds-form-element__control {
+  padding: 2px .2rem;
+}
+
+.filters-row th {
+  font-weight: normal !important;
+}
+
+.slds-input__icon {
+  cursor: pointer;
+}
+
+.tsab-liste-dependance{
+  max-height: 200px;
+}
+
+/*
+.sticky {
+  top: 0px;
+  position: sticky;
+  z-index: 1;
+}
+*/
+/*
+.sticky th {
+  background: white;
+}*/
+
+table.slds-table tbody tr{
+  cursor: pointer!important;
+}
+
+/**
+START : This style for components: liste-ecritures-comptable and liste-enregistrement-ecriture-comptable
+ */
+
+thead {
+  /*position: sticky;
+  top: 0px;
+  z-index: 1;*/
+  background-color: white;
+}
+
+thead th {
+  padding: 0px .5rem !important;
+  color: #a4b0c3;
+}
+thead th .slds-text-align_right{
+  font-weight:normal!important;
+}
+
+
+.slds-table tbody tr.slds-is-selected > td,
+.slds-table tbody tr.slds-is-selected > th,
+.slds-table:not(.slds-no-row-hover) tr.slds-is-selected:hover > td,
+.slds-table:not(.slds-no-row-hover) tr.slds-is-selected:hover > th,
+td.slds-is-selected{
+  background: rgb(207, 233, 255) !important;
+  font-weight: bolder;
+  /*  -webkit-transition: all .2s; !* Safari *!
+    transition: all .2s;*/
+}
+
+
+
+.slds-table .slds-is-selected th:first-child::before {
+  content: "";
+  left: 0px;
+  bottom: 0px;
+  top: 0px;
+  border-left: 5px solid #0088ff !important;
+  position: absolute !important;
+}
+.slds-table .slds-is-selected th,  .slds-table .slds-is-selected td{
+  opacity:1 !important;
+}
+
+/*.slds-table .slds-is-selected td .slds-icon{*/
+  /*fill:#0171d2;*/
+/*}*/
+
+.slds-is-used .slds-icon:first-child{
+  fill:#027e46;
+}
+
+
+/* Taille icon pour presenter la page */
+.slds-icon_illustration {
+  width: 10rem;
+  height: 10rem;
+}
+.slds-icon_illustration_small {
+  width: 5rem;
+  height: 5rem;
+}
+
+.slds-table_striped tbody tr:nth-of-type(even) > td,  .slds-table_striped tbody tr:nth-of-type(even) > th {
+  background-color: rgb(251, 253, 254) !important;
+}
+
+.slds-table tbody td,  .slds-table tbody th {
+  border-top: 1px solid rgb(225, 238, 250)!important;
+}
+
+.slds-badge{
+  opacity:.8;
+  padding: .10rem .25rem;
+}
+.border-bottom-dotted{
+  border-bottom:1px dotted;
+}
+
+/**
+ * Pour un effet de fondu en ouverture des tooltips
+ */
+.tooltip-animate-fade {
+  -moz-transition: opacity .25s linear;
+  -webkit-transition: opacity .25s linear;
+  -o-transition: opacity .25s linear;
+  transition: opacity .25s linear;
+}
+
+/**
+START : This style for components: liste-ecritures-comptable and liste-enregistrement-ecriture-comptable
+ */
+
+/* Pour coller un peu plus l'icone qui est sur la droite d'un input
+(ex: loupe pour ouvrire la popup de recherche de comptes de l'immeuble) */
+.slds-input-has-icon_right .slds-input__icon {
+  right: 0.7rem;
+}
+
+/* Pour que le menu de l'autocomplete ne soit pas caché par un div plus bas */
+div.slds-combobox__menu {
+  /*position: fixed;*/
+  z-index: 99999;
+}
+
+.label-width-50 .slds-form-element__label {
+  width: 50% !important;
+}
+
+.label-width-60 .slds-form-element__label {
+  width: 60% !important;
+}
+
+.label-width-70 .slds-form-element__label {
+  width: 70% !important;
+}
+
+
+/**
+  Caché les modals précedentes quand plusieurs modals sont ouvertes
+  raison: slds ne permet pas dans ses specs le multi modal a cause du backdrop qui n'attenue pas la modal de dessous alors on cache temporairement la modal de dessous
+ */
+.popup{
+  display:none;
+}
+.last-popup{
+  display:inherit;
+}
+
+.slds-scrollable {
+  max-height:100%;
+  max-width:100%
+}
+
+.slds-checkbox_toggle [type="checkbox"][disabled]:checked + .slds-checkbox_faux_container .slds-checkbox_faux {
+  border-color: #0070d2;
+  background-color: #0070d2 !important;
+}
+
+.tsab-liste-form, .tsab-liste-form>div {
+  height: 100%;
+}
+
+.tsab-liste-form .slds-page-header {
+  height: 59px;
+}
+
+.tsab-liste-form .slds-page-header .slds-page-header__name,
+.tsab-liste-form .slds-page-header.slds-text-align_center {
+  font-size: 17px;
+}
+
+.tsab-liste-form .tsab-liste {
+  height: calc(100% - 59px);
+}
+
+.tsab-liste-form>div>div.slds-page-header,
+.tsab-liste-form tsab-lockable .slds-page-header {
+  border-radius: 0 0 0 0;
+}
+
+.tsab-liste-form>div>div.slds-page-header {
+  border-right: 0;
+}
+
+.tsab-liste-form tsab-lockable .slds-page-header{
+  border-left: 0;
+}
+
+/*!* Ovveride scrollbar on webkit nav (aio example)*!*/
+/*body::-webkit-scrollbar, md-sidenav.sidenav::-webkit-scrollbar, .mat-sidenav-content::-webkit-scrollbar {*/
+  /*height: 6px;*/
+  /*width: 6px;*/
+/*}*/
+
+/*body::-webkit-scrollbar-track, md-sidenav.sidenav::-webkit-scrollbar-track, .mat-sidenav-content::-webkit-scrollbar-track {*/
+  /*-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);*/
+/*}*/
+
+/*body::-webkit-scrollbar-thumb, md-sidenav.sidenav::-webkit-scrollbar-thumb, .mat-sidenav-content::-webkit-scrollbar-thumb {*/
+  /*background-color: #6e6e6e;*/
+  /*outline: 1px solid #333;*/
+/*}*/
+
+/*::-webkit-scrollbar, .toc-container::-webkit-scrollbar {*/
+  /*height: 6px;*/
+  /*width: 6px;*/
+/*}*/
+
+/*::-webkit-scrollbar-track, .toc-container::-webkit-scrollbar-track {*/
+  /*-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);*/
+/*}*/
+
+/*::-webkit-scrollbar-thumb, .toc-container::-webkit-scrollbar-thumb {*/
+  /*background-color: #6e6e6e;*/
+  /*outline: 1px solid slategrey;*/
+/*}*/
+
+.cursor-pointer {
+  cursor: pointer;
+}
+.bolder {
+  font-weight: bold!important;
+}
+.half {
+  opacity:.7;
+}
+.no-border{
+  border:0px!important;
+}
+.no-background{
+  background:none;
+  background-color:unset;
+}
+
+/*Use the fa-spin class to get any icon to rotate, and use fa-pulse to have it rotate with 8 steps*/
+.slds-rotate {
+  -webkit-animation: fa-spin 2s infinite linear;
+  animation: fa-spin 2s infinite linear;
+}
+.slds-pulse {
+  -webkit-animation: fa-spin 1s infinite steps(8);
+  animation: fa-spin 1s infinite steps(8);
+}
+@-webkit-keyframes fa-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
+@keyframes fa-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
+
+
+/**
+Ajoute un overlay sur la pseudo-class :after
+Permet de focaliser l'utilisateur sur un element spécifique
+ */
+.slds-overlay:after{
+  content:'';
+  background:black;
+  width:100%;
+  height:100%;
+  position:absolute;
+  top:0;
+  left:0;
+  opacity:0.3;
+  animation: overlaysmooth 300ms ease-in-out;
+}
+@keyframes overlaysmooth {
+  0% {
+    opacity: 0;
+  }
+  100%{
+    opacity: .3;
+  }
+}
+
+/**
+ombre top and bottom
+ */
+.slds-shadow_top{
+  box-shadow: 0 3px 0 0 rgba(0, 0, 0, 0.1);
+}
+.slds-shadow_bottom{
+  box-shadow: 0 -3px 0 0 rgba(0, 0, 0, 0.1);
+}
+
+/**
+ * pour que le tooltip prenne la largeur dont il a besoin
+ */
+.slds-popover--tooltip,
+.slds-popover_tooltip {
+  max-width: 100%;
+}
+
+/**
+pour bien placer les radiobutton / groupe de checkboxes
+ */
+/*.tsab-radio .slds-radio .slds-radio__label > div,*/
+/*.tsab-radio .slds-checkbox .slds-checkbox__label > div {*/
+  /*display: inline-block*/
+/*}*/
+
+
+/*.tsab-radio .slds-radio .slds-radio__label .slds-radio_faux,*/
+/*.tsab-radio .slds-checkbox .slds-checkbox__label .slds-checkbox_faux {*/
+  /*width: 16px*/
+/*}*/
+
+
+/*.tsab-radio .slds-radio .slds-radio__label .slds-form-element__label,*/
+/*.tsab-radio .slds-checkbox .slds-checkbox__label .slds-form-element__label {*/
+  /*width: calc(100% - 40px)*/
+/*}*/
+
+
+.tsab-radio .slds-radio .slds-radio__label,
+.tsab-radio .slds-checkbox .slds-radio__label {
+  padding-bottom: 15px;
+}
+
+.tsab-radio legend {
+  font-weight: bold;
+}
+
+.svg-red {
+  fill: red !important;
+}
+
+.svg-green {
+  fill: green !important;
+}
+
+.svg-blue {
+  fill: #006dcc !important;
+}
+
+.svg-black {
+  fill: #000000 !important;
+}
+
+
+.svg-marine {
+  fill: #16325c;
+}
+
+.svg-white {
+  fill: #ffffff !important;
+}
+
+.input-modified {
+  background-color: #b4bdc9 !important;
+}
+
+.invisible{
+  visibility: hidden;
+}
+
+.tsab-modal-footer-loading {
+  height: 58px;
+  padding-top: 27px;
+}
+
+.slds-nav-vertical__item.slds-is-disabled {
+  color: #a6a5a5;
+}
+
+.slds-nav-vertical__item.slds-is-disabled>a:hover {
+  background-color: inherit !important;
+  cursor: inherit !important;
+}
+.first-uppercase {
+  display: block;
+}
+.first-uppercase:first-letter {
+  text-transform: uppercase !important;
+}
+
+/** fix this issue   **/
+@font-face {
+  font-display: auto!important;
+}
+
+.error-m-left {
+  margin-left: calc(33% + 10px);
+}
+
+/* car le z-index de cdk-overlay-container material2 est plus petit que celui de slds quie st a 90001 */
+.cdk-overlay-container{
+  z-index:10000;
+}
+
+.margin-left-35pct {
+  margin-left: 35%;
+}
+
+.div-vertical-center {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.select-as-link {border: none;}
+.slds-border_bottom {border-width: 2px;}
+
+.font-italic {
+  font-style: italic;
+}
+
+.row-disabled td{
+  background-color: #f3f2f2;
+}
+
+.margin-auto {
+  margin: auto;
+}
+
+.text-green {
+  color: green !important;
+}
+
+
+.items-align-start{
+  align-items: start!important;
+}
+
+/*
+On veut de petite marges entre les input en hauteur
+ */
+.slds-form_horizontal .slds-form-element{
+  margin-bottom: .25rem!important;
+  padding:0px!important;
+}
+/**
+@Override slds horizontal forms to have labels near input (align right)
+ */
+@media (min-width: 48em){
+  .slds-form_horizontal .slds-form-element__label:first-child,
+  .slds-form-element_horizontal .slds-form-element__label:first-child{
+    max-width: calc(33% - 0.25rem);
+  }
+
+  .slds-form_horizontal .slds-form-element__label,
+  .slds-form-element_horizontal .slds-form-element__label{
+    flex: none;
+    width: 100%;
+    text-align:right;
+  }
+}
+
+/*
+Rotate icon 90degree if open/expend
+ */
+.rotate-icon svg{transform:rotate(0deg)}
+
+
+.opacity-50{opacity:0.5;}
+
+.font-normal{font-weight: normal}
+
+
+.champ-mis-en-valeur input {
+  font-weight: bold;
+  border: 1px grey solid !important;
+}
+
+
+.tsab-text-align_justify{
+  text-align: justify;
+}
+
+.border{
+  border: solid 3px #f2f2f2;
+}
+
+
+/*test
+ */
+.isiniframe header.slds-global-header_container, .isiniframe .slds-context-bar{
+  display: none!important;
+}
+.isiniframe .module-wrapper, .isiniframe .app-wrapper{top:0px!important;}
+
+
+virtual-scroller {
+  width: 350px;
+  height: 200px;
+}
+
+my-custom-component {
+  display: block;
+  width: 100%;
+  height: 30px;
+}
+
