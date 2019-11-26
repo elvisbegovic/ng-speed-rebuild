@@ -1,0 +1,25 @@
+{
+  "extends": "../../tsconfig.json",
+  "angularCompilerOptions": {
+    "disableTypeScriptVersionCheck": true,
+    "fullTemplateTypeCheck": false,
+    "ivyTemplateTypeCheck": false,
+    "preserveWhitespaces": false,
+    "enableIvy": true
+  },
+  "compilerOptions": {
+    "outDir": "../../out-tsc/i10/app"
+  },
+  "files": [
+    "src/main.ts",
+    "src/polyfills.ts"
+  ],
+  "include": [
+    "src/**/*.d.ts"
+  ],
+  "exclude": [
+    "scripts",
+    "src/test.ts",
+    "src/**/*.spec.ts"
+  ]
+}
