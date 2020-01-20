@@ -1,0 +1,4 @@
+<p>b15 works!</p>
+<virtual-scroller #scroll [items]="data">
+  <div *ngFor="let item of scroll.viewPortItems">{{item.index}}</div>
+</virtual-scroller>

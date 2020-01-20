@@ -1,0 +1,939 @@
+<p>a59 works!</p>
+<form [formGroup]="form"
+      class=" fullheight slds-wrap ">
+
+  <article class="slds-card bg-white  slds-scrollable fullheight">
+
+    <div class="slds-card__body slds-card__body_inner">
+
+      <div class="slds-form_horizontal slds-p-top_small">
+
+        <div class="slds-form__row slds-p-top_small  ">
+
+          <div class="slds-form-element slds-size_1-of-4 " >
+          </div>
+          <div class="slds-form-element slds-size_1-of-4 "
+               [ngClass]="{'slds-has-error': form.get('number').enabled && (!form.get('number').valid)}"
+          >
+            <legend class="slds-form-element__label slds-truncate" i18n>Numéro</legend>
+
+            <div class="slds-form-element__control champ-no-court">
+              <input autocomplete="none"  class="slds-input"
+                     type="text"
+                     number
+                     formControlName="number"
+                     #number />
+            </div>
+          </div>
+
+          <!-- Designation -->
+          <div class="slds-form-element slds-size_2-of-4 "
+               [ngClass]="{'slds-has-error': form.get('designation').enabled &&
+               (!form.get('designation').valid)}">
+
+            <legend class="slds-form-element__label slds-truncate" i18n>Désignation</legend>
+
+            <div class="slds-form-element__control slds-p-right_small champ-designation-long ">
+              <input autocomplete="none"  class="slds-input"
+                     type="text"
+                     formControlName="designation"  />
+            </div>
+          </div>
+
+        </div>
+
+
+        <div class="slds-form-element slds-form-element_horizontal"
+             [ngClass]="{'slds-has-error': form.get('participationType').enabled &&
+               (!form.get('participationType').valid)}">
+          <label class="slds-form-element__label
+          slds-truncate" ><b><span i18n>Type de participation</span></b></label>
+
+          <div class="slds-form-element__control champ-designation ">
+
+            <div class="slds-select_container ">
+
+              <select class="slds-select" formControlName="participationType" (change)="test($event)">
+                <option value="" ></option>
+                <option value="InitialSocialPart" i18n>Part sociale initiale</option>
+                <option value="SocialPart" i18n>Part sociale</option>
+                <option value="Deposit" i18n>Dépôts</option>
+                <option value="SubscriptionInvoice" i18n>Facturation abonnements</option>
+              </select>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="slds-form-element slds-form-element_horizontal"  >
+
+          <label class="slds-form-element__label slds-truncate"
+                 for="amountSocialPart" i18n>Valeur d'une part sociale (CHF)</label>
+
+          <div class="slds-form-element__control champ-no-court ">
+
+            <input autocomplete="none"
+                   type="text"
+                   id="amountSocialPart"
+                   currency class="slds-input"
+                   formControlName="amountSocialPart"
+            />
+
+          </div>
+        </div>
+
+        <!-- Part sociale initiale type1  ou  Part sociale type2 -->
+        <div *ngIf="true || true" class=" slds-p-top_small">
+
+          <span *ngIf="true"
+                class="slds-text-heading_small " ><b><span i18n>Part sociale initiale</span></b></span>
+
+          <span *ngIf="true"
+                class="slds-text-heading_small " ><b><span i18n>Part sociale</span></b></span>
+
+          <div class="slds-form-element slds-form-element_horizontal" >
+            <label class="slds-form-element__label slds-truncate" i18n>Type de part</label>
+
+            <div class="slds-form-element__control champ-designation-long ">
+
+              <div class="slds-select_container ">
+
+                <select class="slds-select" formControlName="socialPartType"
+                        (change)="test($event)" >
+                  <option value="WithCertificate" i18n>Pas de parts sociales physiques: avec certificat</option>
+                  <option value="WithoutCertificate" i18n>Pas de parts sociales physiques: sans certificat</option>
+                  <option value="WithPhysicalSocialPart" i18n>Avec parts sociales physiques</option>
+                </select>
+
+              </div>
+            </div>
+          </div>
+
+          <div *ngIf="form?.controls['socialPartType']?.value=='WithPhysicalSocialPart'" class="slds-form-element slds-form-element_horizontal" >
+            <label class="slds-form-element__label slds-truncate" i18n>Parts sociales physiques</label>
+
+            <div class="slds-form-element__control champ-designation-long ">
+
+              <div class="slds-select_container ">
+
+                <select class="slds-select" formControlName="controlledNumberingType"
+                        (change)="test($event)">
+                  <option value="WithControlledNumbering" i18n>Avec numérotation contrôlée</option>
+                  <option value="WithoutControlledNumbering" i18n>Sans numérotation contrôlée</option>
+                </select>
+
+              </div>
+            </div>
+          </div>
+
+          <div *ngIf="form?.controls['socialPartType']?.value=='WithPhysicalSocialPart' &&
+          form?.controls['controlledNumberingType']?.value=='WithControlledNumbering'"
+               class="slds-p-bottom_x-small slds-form__row ">
+
+            <div class="slds-form-element slds-size_2-of-8 " >
+            </div>
+
+            <div class="slds-form-element slds-size_2-of-8 " >
+              <label class="slds-form-element__label">
+                <ng-container i18n>du numéro</ng-container>
+              </label>
+              <div class="slds-form-element__control champ-no ">
+                <input autocomplete="none"
+                       type="text" class="slds-input"
+                       number
+                       formControlName="fromNumberControlled"
+                       #number />
+              </div>
+            </div>
+
+            <div class="slds-form-element slds-size_2-of-8 " >
+              <label class="slds-form-element__label">
+                <ng-container i18n>au numéro</ng-container>
+              </label>
+              <div class="slds-form-element__control champ-no ">
+                <input autocomplete="none"
+                       type="text" class="slds-input"
+                       number
+                       formControlName="toNumberControlled"/>
+              </div>
+            </div>
+
+            <div class="slds-form-element slds-size_2-of-8 " >
+            </div>
+
+          </div>
+
+          <div class="slds-form-element">
+            <label class="slds-form-element__label slds-truncate"  i18n-title
+                   title="Compte débiteur des parts sociales" i18n>Compte débiteur des parts sociales</label>
+
+            <div class=" slds-form-element__control  ">
+
+              <div class="slds-combobox_container">
+                <div class="slds-combobox slds-is-open"
+                     aria-expanded="false" aria-haspopup="listbox" role="combobox">
+
+                  <div class="slds-combobox__form-element " role="none">
+                    <input autocomplete="none"  class="slds-input slds-combobox__input inline-block"
+                           type="text"/>
+                  </div>
+
+
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="slds-form-element">
+            <label class="slds-form-element__label slds-truncate"  i18n-title
+                   title="Compte capital des parts sociales" i18n>Compte capital des parts sociales</label>
+
+            <div class=" slds-form-element__control  ">
+
+              <div class="slds-combobox_container">
+                <div class="slds-combobox slds-is-open"
+                     aria-expanded="false" aria-haspopup="listbox" role="combobox">
+
+                  <div class="slds-combobox__form-element" role="none">
+                    <input autocomplete="none"  class="slds-input slds-combobox__input inline-block"
+                           type="text"/>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="slds-form__row slds-p-top_small slds-p-bottom_small ">
+
+            <div class="slds-form-element slds-size_1-of-2 " >
+
+              <div class="slds-p-right_x-small">
+                <ul class="slds-has-dividers_around-space">
+                  <li class="slds-item slds-is-relative" >
+
+                    <div class="slds-form-element">
+                      <legend class="slds-form-element__label
+            slds-truncate" i18n-title title="Intérêts débiteurs sur participations non libérées"
+                      ><b><span i18n>Intérêts débiteurs</span></b></legend >
+
+                      <div class="slds-form-element__control slds-p-bottom_x-small ">
+                        <label class="slds-checkbox_toggle slds-grid">
+                          <input autocomplete="none"  type="checkbox"
+                                 id="isInterestExpenseSocialPartNotPaid"
+                                 formControlName="isInterestExpenseSocialPartNotPaid">
+                          <span class="slds-checkbox_faux_container slds-p-right_large" aria-live="assertive">
+                            <span class="slds-checkbox_faux"></span>
+                            </span>
+
+                          <div class="slds-text-align_center slds-p-left_large">
+                            <button class="slds-button slds-button_neutral"
+                                    [disabled]="form.disabled || 'okay' == 'okay'"
+                                    (click)="test('InterestDebitorParticipationNotReleased')"><span i18n>Ajouter Dates/Taux</span> </button>
+
+                          </div>
+
+                        </label>
+                      </div>
+
+                      <div *ngIf="'okay' == 'okay'"
+                           class="slds-text-color_error slds-form-error">
+                      <span>
+                        <ng-container i18n>Attention: Les lignes ci-dessous vont être supprimées lors de la sauvegarde</ng-container>
+                      </span>
+                      </div>
+
+
+                      <div *ngIf="'okay' == 'okay' &&
+                                  [].length!=0" >
+                        <span class="slds-text-color_error slds-form-error" i18n>Attention: Les dates se chevauchent</span>:
+                        <ul>
+                          <li *ngIf="'okay' == 'okay'">okay</li>
+                        </ul>
+                      </div>
+
+
+                    </div>
+
+
+                  </li>
+                </ul>
+              </div>
+
+            </div>
+
+            <div class="slds-form-element slds-size_1-of-2 " >
+
+              <div class="slds-p-left_x-small">
+                <ul class="slds-has-dividers_around-space">
+                  <li class="slds-item slds-is-relative" >
+                    <div  class="slds-form-element">
+                      <legend
+                        class="slds-form-element__label
+            slds-truncate"
+                        i18n-title title="Intérêts créanciers sur participations libérées"
+                      ><b><span i18n>Intérêts créanciers</span></b></legend >
+
+                      <div class="slds-form-element__control slds-p-bottom_x-small ">
+                        <label class="slds-checkbox_toggle slds-grid">
+                          <input autocomplete="none"  type="checkbox"
+                                 id="isCreditorInterestSocialPartPaid"
+                                 formControlName="isCreditorInterestSocialPartPaid">
+                          <span class="slds-checkbox_faux_container slds-p-right_large" aria-live="assertive">
+              <span class="slds-checkbox_faux"></span>
+              </span>
+
+                          <div class="slds-text-align_center slds-p-left_large">
+                            <button class="slds-button slds-button_neutral"
+                                    [disabled]="form.disabled"
+                                    (click)="test('InterestCreditorParticipationReleased')"><span i18n>Ajouter Dates/Taux</span> </button>
+
+                          </div>
+
+                        </label>
+                      </div>
+
+
+                      <div >
+                        <span class="slds-text-color_error slds-form-error" i18n>Attention: Les dates se chevauchent</span>:
+                        <ul>
+                          <li *ngIf="'okay' == 'okay'"></li>
+                        </ul>
+                      </div>
+
+
+                      <div *ngIf="'okay' == 'okay'"
+                           class="slds-text-color_error slds-form-error">
+                      <span>
+                        <ng-container i18n>Attention: Les lignes ci-dessous vont être supprimées lors de la sauvegarde</ng-container>
+                      </span>
+                      </div>
+                    </div>
+
+                    <div *ngIf="'okay' == 'okay' && [].length" class="slds-p-top_small slds-p-bottom_x-small tsab-liste">
+
+                    </div>
+
+                    <div *ngIf="'okay' == 'okay'"
+                         class="slds-form-element slds-form-element_horizontal" >
+                      <label
+                        i18n-title title="Type de transfert"
+                        class="slds-form-element__label slds-truncate" i18n>Type de transfert</label>
+
+                      <div class="slds-form-element__control
+          champ-designation-long ">
+
+                        <div class="slds-select_container ">
+
+                          <select class="slds-select"
+                                  formControlName="transferTypeCreditor"
+                                  (change)="test($event)">
+                            <option
+                              class="slds-truncate"
+                              i18n-title title="Virement des intérêts"
+                              value="InterestTransfer" i18n>Virement des intérêts</option>
+                            <option
+                              class="slds-truncate"
+                              i18n-title title="Reporter sur compte courant de la participation sociétaire"
+                              value="DeferToCurrentAccount" i18n>Reporter sur compte courant</option>
+                          </select>
+
+                        </div>
+                      </div>
+                    </div>
+
+                    <div *ngIf="'okay' == 'okay'" class="slds-form-element slds-form-element_horizontal"  >
+
+                      <label class="slds-form-element__label slds-truncate"
+                             i18n-title title="Pourcentage impot anticipé"
+                             for="percentageAnticipatedTax" i18n>Pourcentage impot anticipé</label>
+
+                      <div class="slds-form-element__control slds-size_1-of-2 champ-montant">
+
+                        <input autocomplete="none"
+                               type="text"
+                               id="percentageAnticipatedTax"
+                               currency class="slds-input"
+                               formControlName="percentageAnticipatedTax" />
+
+                      </div>
+                    </div>
+
+                    <div *ngIf="'okay' == 'okay'" class="slds-form-element slds-form-element_horizontal"  >
+
+                      <label class="slds-form-element__label slds-truncate"
+                             i18n-title title="Franchise non soumise à l'impot anticipé"
+                             for="franchiseNotSubjectToAnticipatedTax" i18n>Franchise non soumise à l'impot anticipé</label>
+
+                      <div class="slds-form-element__control slds-size_1-of-2 champ-montant">
+
+                        <input autocomplete="none"
+                               type="text"
+                               id="franchiseNotSubjectToAnticipatedTax"
+                               currency class="slds-input"
+                               formControlName="franchiseNotSubjectToAnticipatedTax" />
+
+                      </div>
+                    </div>
+
+                    <div *ngIf="'okay' == 'okay'" class="slds-form-element">
+                      <label class="slds-form-element__label slds-truncate"  i18n-title
+                             title="Imputation comptable créancier" i18n>Imputation comptable créancier</label>
+
+                      <div class=" slds-form-element__control  ">
+
+                        <div class="slds-combobox_container">
+
+                          <div class="slds-combobox slds-is-open"
+                               aria-expanded="false" aria-haspopup="listbox" role="combobox">
+
+                            <div class="slds-combobox__form-element" role="none">
+                              <input autocomplete="none"
+
+                                     class="slds-input slds-combobox__input inline-block"
+                                     type="text"/>
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div  *ngIf="true &&
+                            form?.controls['transferTypeCreditor']?.value=='InterestTransfer'"
+                          class="slds-form-element">
+                      <label class="slds-form-element__label slds-truncate"  i18n-title
+                             title="Compte transitoire intérêts" i18n>Compte transitoire intérêts</label>
+
+                      <div class=" slds-form-element__control  ">
+
+                        <div class="slds-combobox_container">
+
+                          <div class="slds-combobox slds-is-open"
+                               aria-expanded="false" aria-haspopup="listbox" role="combobox">
+
+                            <div class="slds-combobox__form-element" role="none">
+                              <input autocomplete="none"
+
+                                     class="slds-input slds-combobox__input inline-block"
+                                     type="text"/>
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div *ngIf="true "
+                         class="slds-form-element">
+                      <label class="slds-form-element__label slds-truncate"  i18n-title
+                             title="Compte charges des intérêts par défaut" i18n>Compte charges des intérêts par défaut</label>
+
+                      <div class="slds-form-element__control  ">
+
+                        <div class="slds-combobox_container">
+
+                          <div class="slds-combobox slds-is-open"
+                               aria-expanded="false" aria-haspopup="listbox" role="combobox">
+
+                            <div class="slds-combobox__form-element" role="none">
+                              <input autocomplete="none"
+
+                                     class="slds-input slds-combobox__input inline-block"
+                                     type="text"/>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- Dépôts type10 -->
+        <div *ngIf="true" class=" slds-p-top_small">
+
+          <span class="slds-text-heading_small " ><b><span i18n>Dépôts</span></b></span>
+
+          <div class="slds-form-element slds-form-element_horizontal" >
+            <label class="slds-form-element__label slds-truncate" i18n>Durée du dépôt</label>
+
+            <div class="slds-form-element__control champ-designation-long ">
+
+              <div class="slds-select_container ">
+
+                <select class="slds-select" formControlName="durationTypeDeposit"
+                        (change)="test($event)" >
+                  <option value="Undetermined" i18n>Indéterminé</option>
+                  <option value="Determined" i18n>Déterminé</option>
+                  <option value="MonthsNumber" i18n>Nombre de mois dès versement du dépôt</option>
+                </select>
+
+              </div>
+            </div>
+          </div>
+
+          <div *ngIf="form?.controls['durationTypeDeposit']?.value=='Determined'"
+               class="slds-form-element" >
+            <label class="slds-form-element__label">
+              <ng-container i18n>Déterminée jusqu'au</ng-container>
+            </label>
+            <div class="slds-form-element__control champ-date ">
+              <input autocomplete="none"  type="text"
+                     class="slds-input"
+                     date
+                     formControlName="determinedDateDeposit" />
+            </div>
+          </div>
+
+          <div *ngIf="form?.controls['durationTypeDeposit']?.value=='MonthsNumber'" class="slds-form-element ">
+
+            <label class="slds-form-element__label slds-truncate" i18n>Nombre de mois</label>
+
+            <div class="slds-form-element__control champ-no-court ">
+              <input autocomplete="none"
+                     class="slds-input"
+                     number
+                     formControlName="monthsNumberDeposit"  />
+            </div>
+          </div>
+
+          <div class="slds-form-element">
+            <label class="slds-form-element__label slds-truncate"  i18n-title
+                   title="Compte débiteur des participations" i18n>Compte débiteur des participations</label>
+
+            <div class=" slds-form-element__control  ">
+
+              <div class="slds-combobox_container">
+                <div class="slds-combobox slds-is-open"
+                     aria-expanded="false" aria-haspopup="listbox" role="combobox">
+
+                  <div class="slds-combobox__form-element" role="none">
+                    <input autocomplete="none"  class="slds-input slds-combobox__input inline-block"
+                           type="text"/>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="slds-form-element">
+            <label class="slds-form-element__label slds-truncate"  i18n-title
+                   title="Compte capital des participations" i18n>Compte capital des participations</label>
+
+            <div class=" slds-form-element__control  ">
+
+              <div class="slds-combobox_container">
+                <div class="slds-combobox slds-is-open"
+                     aria-expanded="false" aria-haspopup="listbox" role="combobox">
+
+                  <div class="slds-combobox__form-element" role="none">
+                    <input autocomplete="none"  class="slds-input slds-combobox__input inline-block"
+                           type="text"/>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="slds-form__row slds-p-top_small slds-p-bottom_small ">
+
+            <div class="slds-form-element slds-size_1-of-5 " >
+            </div>
+
+            <div class="slds-form-element slds-size_3-of-5 " >
+
+              <div class="slds-p-right_x-small">
+                <ul class="slds-has-dividers_around-space">
+                  <li class="slds-item slds-is-relative" >
+
+                    <div class="slds-form-element ">
+                      <label
+                        class="slds-form-element__label
+            slds-truncate"
+                        i18n-title
+                        title="Intérêt débiteur sur dépôt non libérées" ><b><span i18n>Intérêt débiteur sur dépôt</span></b></label>
+
+                      <div class="slds-form-element__control  ">
+                        <label class="slds-checkbox_toggle slds-grid">
+                          <input autocomplete="none"  type="checkbox"
+                                 id="isDebitorInterestNotPaidDeposit"
+                                 formControlName="isDebitorInterestNotPaidDeposit">
+                          <span class="slds-checkbox_faux_container slds-p-right_large" aria-live="assertive">
+              <span class="slds-checkbox_faux"></span>
+              </span>
+
+                          <div class="slds-text-align_center slds-p-left_large">
+                            <button class="slds-button slds-button_neutral"
+                                    [disabled]="form.disabled"
+                                    (click)="test('InterestDebitorDepositNotReleased')"><span i18n>Ajouter Dates/Taux</span> </button>
+
+                          </div>
+
+                        </label>
+                      </div>
+
+                      <div *ngIf="true &&
+                                  [].length!=0" >
+                        <span class="slds-text-color_error slds-form-error" i18n>Attention: Les dates se chevauchent</span>:
+                        <ul>
+                          <li>ok</li>
+                        </ul>
+                      </div>
+
+                      <div *ngIf="true && [].length"
+                           class="slds-text-color_error slds-form-error">
+                      <span>
+                        <ng-container i18n>Attention: Les lignes ci-dessous vont être supprimées lors de la sauvegarde</ng-container>
+                      </span>
+                      </div>
+
+                    </div>
+
+                  </li>
+                </ul>
+              </div>
+
+            </div>
+
+            <div class="slds-form-element slds-size_1-of-5 " >
+            </div>
+          </div>
+
+          <div class="slds-form-element slds-form-element_horizontal" >
+            <label class="slds-form-element__label slds-truncate" i18n>Mode de rémunération</label>
+
+            <div class="slds-form-element__control champ-designation-long ">
+
+              <div class="slds-select_container ">
+
+                <select class="slds-select" formControlName="remunerationTypeOnPaid"
+                        (change)="test($event)"  >
+                  <option value="WithoutRemuneration" i18n>Aucune rémunération</option>
+                  <option value="WithCalculationInterestCreditor" i18n>Avec calcul des intérêts créditeurs</option>
+                  <option value="WithDepositIndexation" i18n>Avec indexation du dépôt</option>
+                </select>
+
+              </div>
+            </div>
+
+            <div *ngIf="true && [].length && form?.controls['remunerationTypeOnPaid'].value != 'WithCalculationInterestCreditor'"
+                 class="slds-p-top_xx-small slds-text-color_error slds-form-error">
+                      <span>
+                        <ng-container i18n>Attention: Les lignes du "calcul des intérêts créditeurs" vont être supprimées lors de la sauvegarde</ng-container>                      </span>
+            </div>
+
+          </div>
+
+          <!-- si dépot && si remunerationTypeOnPaid == WithCalculationInterestCreditor -->
+          <div class="slds-form__row slds-p-top_small slds-p-bottom_small"
+               *ngIf="form?.controls['remunerationTypeOnPaid'].value == 'WithCalculationInterestCreditor'">
+
+            <div class="slds-form-element slds-size_1-of-6 " ></div>
+
+            <div class="slds-form-element slds-size_4-of-6 " >
+
+              <div class="slds-p-left_x-small">
+                <ul class="slds-has-dividers_around-space">
+                  <li class="slds-item slds-is-relative" >
+
+                    <div    class="slds-form-element">
+
+                      <div class="slds-form__row slds-p-top_x-small slds-p-bottom_x-small ">
+                        <div class="slds-form-element slds-size_2-of-6 " ></div>
+
+                        <div class="slds-form-element slds-size_4-of-6 " >
+                          <label i18n-title title="Calcul des intérêts créditeurs"
+                          ><b><span class="slds-p-right_large" i18n>Calcul des intérêts créditeurs</span></b>
+
+                            <button class="slds-text-align_center slds-p-left_large slds-button slds-button_neutral"
+                                    [disabled]="form.disabled"
+                                    (click)="test('InterestCalculCreditorDeposit')"><span i18n>Ajouter Dates/Taux</span> </button>
+
+
+                          </label>
+
+                          <div *ngIf="true &&
+                                  [].length!=0" >
+                            <span class="slds-text-color_error slds-form-error" i18n>Attention: Les dates se chevauchent</span>:
+                            <ul>
+                              <li>ok</li>
+                            </ul>
+                          </div>
+
+                        </div>
+
+                      </div>
+                    </div>
+
+                    <div *ngIf="true && [].length" class="slds-p-top_xxx-small slds-p-bottom_x-small tsab-liste">
+                    </div>
+
+
+                    <div class="slds-form-element slds-form-element_horizontal" >
+                      <label i18n-title title="Type de transfert"
+                             class="slds-form-element__label slds-truncate" i18n>Type de transfert</label>
+
+                      <div class="slds-form-element__control champ-designation-long ">
+
+                        <div class="slds-select_container ">
+
+                          <select class="slds-select" formControlName="transferTypeCreditor"
+                                  (change)="test($event)">
+
+                            <option class="slds-truncate"
+                                    i18n-title title="Virement des intérêts"
+                                    value="InterestTransfer" i18n>Virement des intérêts</option>
+
+                            <option class="slds-truncate"
+                                    i18n-title title="Reporter sur compte courant de la participation sociétaire"
+                                    value="DeferToCurrentAccount" i18n>Reporter sur compte courant</option>
+
+                          </select>
+
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="slds-form-element slds-form-element_horizontal"  >
+
+                      <label class="slds-form-element__label slds-truncate"
+                             i18n-title title="Pourcentage impot anticipé"
+                             for="percentageAnticipatedTax2" i18n>Pourcentage impot anticipé</label>
+
+                      <div class="slds-form-element__control slds-size_1-of-2 champ-montant">
+
+                        <input autocomplete="none"
+                               type="text"
+                               id="percentageAnticipatedTax2"
+                               currency class="slds-input"
+                               formControlName="percentageAnticipatedTax" />
+
+                      </div>
+                    </div>
+
+                    <div class="slds-form-element slds-form-element_horizontal"  >
+
+                      <label class="slds-form-element__label slds-truncate"
+                             i18n-title title="Franchise non soumise à l'impot anticipé"
+                             for="franchiseNotSubjectToAnticipatedTax2" i18n>Franchise non soumise à l'impot anticipé</label>
+
+                      <div class="slds-form-element__control slds-size_1-of-2 champ-montant">
+
+                        <input autocomplete="none"
+                               type="text"
+                               id="franchiseNotSubjectToAnticipatedTax2"
+                               currency class="slds-input"
+                               formControlName="franchiseNotSubjectToAnticipatedTax" />
+
+                      </div>
+                    </div>
+
+                    <div class="slds-form-element">
+                      <label class="slds-form-element__label slds-truncate"  i18n-title
+                             title="Imputation comptable créancier" i18n>Imputation comptable créancier</label>
+
+                      <div class=" slds-form-element__control  ">
+
+                        <div class="slds-combobox_container">
+
+                          <div class="slds-combobox slds-is-open"
+                               aria-expanded="false" aria-haspopup="listbox" role="combobox">
+
+                            <div class="slds-combobox__form-element" role="none">
+                              <input autocomplete="none"
+
+                                     class="slds-input slds-combobox__input inline-block"
+                                     type="text" />
+                            </div>
+
+
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div  *ngIf="form?.controls['transferTypeCreditor']?.value=='InterestTransfer'"
+                          class="slds-form-element">
+                      <label class="slds-form-element__label slds-truncate"  i18n-title
+                             title="Compte transitoire intérêts" i18n>Compte transitoire intérêts</label>
+
+                      <div class=" slds-form-element__control  ">
+
+                        <div class="slds-combobox_container">
+
+                          <div class="slds-combobox slds-is-open"
+                               aria-expanded="false" aria-haspopup="listbox" role="combobox">
+
+                            <div class="slds-combobox__form-element" role="none">
+                              <input autocomplete="none"
+
+                                     class="slds-input slds-combobox__input inline-block"
+                                     type="text" />
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="slds-form-element">
+                      <label class="slds-form-element__label slds-truncate"  i18n-title
+                             title="Compte charges des intérêts par défaut" i18n>Compte charges des intérêts par défaut</label>
+
+                      <div class="slds-form-element__control  ">
+
+                        <div class="slds-combobox_container">
+
+                          <div class="slds-combobox slds-is-open"
+                               aria-expanded="false" aria-haspopup="listbox" role="combobox">
+
+                            <div class="slds-combobox__form-element" role="none">
+                              <input autocomplete="none"
+
+                                     class="slds-input slds-combobox__input inline-block"
+                                     type="text" />
+                            </div>
+
+
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                  </li>
+                </ul>
+              </div>
+
+            </div>
+
+            <div class="slds-form-element slds-size_1-of-6 " ></div>
+
+          </div>
+
+          <!-- Avec indexation du dépôt -->
+          <div *ngIf="form?.controls['remunerationTypeOnPaid'].value == 'WithDepositIndexation'"
+               class="slds-form-element slds-form-element_horizontal slds-p-top_none" >
+            <label class="slds-form-element__label slds-truncate"
+                   title="Type de TVA" i18n-title i18n>Base de l'index appliqué</label>
+            <div class="slds-form-element__control champ-designation " >
+
+              <div class="slds-combobox_container">
+                <div class="slds-combobox slds-is-open">
+                  <div class="slds-combobox__form-element" role="none">
+                    <input class="slds-input slds-combobox__input"
+                           type="text"
+                           formControlName="indexIpcBaseDeposit" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- //Facturation abonnements type20 -->
+        <div *ngIf="true" class=" slds-p-top_small">
+
+          <span class="slds-text-heading_small " ><b><span i18n>Facturation abonnements</span></b></span>
+
+          <div  class="slds-p-top_x-small slds-form-element">
+            <label class="slds-form-element__label slds-truncate"  i18n-title
+                   title="Compte débiteur pour les factures" i18n>Compte débiteur pour les factures</label>
+
+            <div class=" slds-form-element__control  ">
+
+              <div class="slds-combobox_container">
+                <div class="slds-combobox slds-is-open"
+                     aria-expanded="false" aria-haspopup="listbox" role="combobox">
+
+                  <div class="slds-combobox__form-element" role="none">
+                    <input autocomplete="none"  class="slds-input slds-combobox__input inline-block"
+                           type="text"/>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div  class="slds-form-element">
+            <label class="slds-form-element__label slds-truncate"  i18n-title
+                   title="Compte recette" i18n>Compte recette</label>
+
+            <div class=" slds-form-element__control  ">
+
+              <div class="slds-combobox_container">
+
+                <div class="slds-combobox slds-is-open"
+                     aria-expanded="false" aria-haspopup="listbox" role="combobox">
+
+                  <div class="slds-combobox__form-element" role="none">
+                    <input autocomplete="none"
+                           class="slds-input slds-combobox__input inline-block"
+                           type="text"/>
+                  </div>
+
+
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div  class="slds-form-element slds-form-element_horizontal" >
+            <label class="slds-form-element__label slds-truncate" i18n>Type de facturation</label>
+
+            <div class="slds-form-element__control champ-designation-long ">
+
+              <div class="slds-select_container ">
+
+                <select class="slds-select" formControlName="billingType"
+                        (change)="test($event)" >
+                  <option value="AnnualAmountFixAmount" i18n>Facturation, montant fixe</option>
+                  <option value="AnnualAmountMemberLevel" i18n>Facturation, montant défini au niveau du sociétaire</option>
+                  <option value="PunctualBenefit" i18n>Facturation de prestation ponctuelles</option>
+                  <option value="DebtorInterest" i18n>Facturation interets débiteurs</option>
+                </select>
+
+              </div>
+            </div>
+          </div>
+
+          <!--
+          si ParticipationType = SubscriptionInvoice  et
+          billingType (Type de facturation) = AnnualAmountFixAmount (Facturation, montant annuel, montant fixe
+          -->
+          <div *ngIf="form?.controls['billingType']?.value=='AnnualAmountFixAmount'"
+               class="slds-form-element slds-form-element_horizontal"  >
+
+            <label class="slds-form-element__label slds-truncate"
+                   for="amountAnnualInvoice" i18n>Montant à facturer</label>
+
+            <div class="slds-form-element__control champ-no-court ">
+
+              <input autocomplete="none"
+                     type="text"
+                     id="amountAnnualInvoice"
+                     currency class="slds-input"
+                     formControlName="amountAnnualInvoice" />
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </article>
+
+</form>
