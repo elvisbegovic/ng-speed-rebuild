@@ -65,6 +65,7 @@ Compilation complete. Watching for file changes.
 ```
 
 
+
 # ng serve 9rc9 rebuild  83s -> 7s -> 5s -> 15s -> 17s -> 14s
 This is by trigger rebuild by append `cnosole.log(1)` in `projects\one\src\app\a4\a1\a11\a11.component.ts` in `ngOnInit()`
 ```
