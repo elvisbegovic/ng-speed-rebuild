@@ -7,7 +7,9 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "ngc": "ngc -p projects/one/tsconfig.app.json --watch --diagnostics",
+    "ngc-debug": "node  --max-old-space-size=8192 --inspect-brk ./node_modules/@angular/compiler-cli/src/main.js --watch -p projects/one/tsconfig.app.json --watch"
   },
   "private": true,
   "dependencies": {
